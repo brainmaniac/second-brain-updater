@@ -29,12 +29,12 @@ func initConfig() {
 	fullTodoListFile = fmt.Sprintf("%s/%s", secondBrainRoot, todoListFile)
 	today = time.Now().Format("2006-01-02")
 	dailyScheduleFile = fmt.Sprintf("%s/%s.org", secondBrainRoot, today)
-	prePrompt = fmt.Sprintf(`Given the following org-mode to-do list, create a structured daily org-mode formatted TODO-schedule for today (%s). Consider what date it is an any potential deadlines or just other contextual aspects of the date. Also be creative if you come up with something important to add to achieve the tasks in the list. I wont be able to make everything in one day. Prioritize what is important for the current day! Also, DO FOLLOW THESE RULES OR FEEL MY WRATH:
+	prePrompt = fmt.Sprintf(`Given the following org-mode to-do list, create a structured daily org-mode formatted TODO-schedule for today (%s). Consider what date it is and any potential deadlines or just other contextual aspects of the date. Also be creative if you come up with something important to add to achieve the tasks in the list. I wont be able to make everything in one day. Prioritize what is important for the current day! Also, DO FOLLOW THESE RULES OR FEEL MY WRATH:
 			* If you write a task for example: "Write a message" then provide an example for that message. Apply this thinking on all tasks you write.
 			* Each title row, not each checkbox item, in the schedule should start with TODO to indicate actionable items.
 			* The subtasks for a title row should be checkboxes.
 			* Make each main task scheduled according to org mode standard, both date and timespan like this under the title row: 'SCHEDULED: <2015-02-20 Fri 15:15>'.
-			* When writing a task for a meal provide an easy quick healthy vegetarian recipe and a shopping list.
+			* When writing a task for a meal, provide an easy quick healthy vegetarian recipe (no rice!) and a list of what I need to buy to make that meal. Don't forget the list.
 			* If you see that some checkboxes are checked ('- [X]' looks like that instead of '- [ ]') in the provided to-do list, then please exclude them in the schedule.
 			* The schedule should effectively balance work, personal tasks, and projects, including time for meals and breaks.
 			* Return ONLY (!!!) the org-mode list. NOTHING else and NOTHING FROM the provided org-mode to-do list. Here is the org-mode to-do list to generate the org-mode formatted daily schedule from: `, today)
